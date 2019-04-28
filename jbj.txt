@@ -1,0 +1,97 @@
+musician schema 
+
+use iti ;
+CREATE table musician
+(id Int PRIMARY KEY,
+                      name varchar(50),
+                      sit varchar(50),
+                      city varchar(50),
+                      phone varchar(50));
+
+//////////////////////////////
+use iti ;
+CREATE table album
+(id Int PRIMARY KEY,
+                      title varchar(50),
+                      mid int,
+                      Date_A date,
+                      phone varchar(50));
+////////////////////////////////////
+
+use iti ;
+CREATE table instrument
+(name varchar(50) PRIMARY KEY,
+                   
+                      key_ins varchar(50));
+
+//////////////////////
+
+use iti ;
+CREATE table song
+(title varchar(50) PRIMARY KEY,
+                      album_id int,
+                      key_ins varchar(50));
+
+////////////////////////////
+use iti ;
+CREATE table playsong
+(song_name varchar(50),
+                 
+ mid int,
+ PRIMARY KEY(song_name,mid));
+ 
+
+/////////
+add foregin key
+
+alter TABLE album
+ADD CONSTRAINT FOREIGN KEY(mid) REFERENCES musician(id);
+////////////////
+=======================schema office sales =========
+
+use iti2;
+
+CREATE table sales_office
+(num int PRIMARY KEY,
+                    location varchar(50),
+                      key_emp int);
+////////////////////////////
+
+use iti2;
+
+CREATE table emp
+(id Int PRIMARY KEY,
+ name varchar(50),
+ s_num int);
+/////////////////////////////
+
+use iti2;
+
+CREATE table prop
+(id Int PRIMARY KEY,
+ addre varchar(50),
+ city varchar(50),
+ zip varchar(50),
+ stata varchar(50),
+ s_num int);
+///////////////
+
+use iti2;
+
+CREATE table owner
+(id Int PRIMARY KEY,
+ name varchar(50));
+
+////
+
+use iti2;
+
+CREATE table prop_owner
+(owni_id Int ,
+ prop_id int,
+ percent varchar(50),
+PRIMARY KEY(owni_id,prop_id));
+//////////////////////////
+SHOW DATABASES ;
+SELECT VERSION();
+SELECT CURRENT_DATE() ;
